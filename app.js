@@ -18,35 +18,35 @@ function playRound(humanChoice, computerChoice) {
 	const computerSelection = computerChoice();
 
 	if (humanSelection === null) {
-		console.log('Entrada no válida. Por favor, elija nuevamente.');
+		alert('Entrada no válida. Por favor, elija nuevamente.');
 		return playRound(humanChoice, computerChoice);
 	}
 
 	if (humanSelection === computerSelection) {
-		console.log(`Empate: ambos eligieron ${humanSelection}.`);
+		alert(`Empate: ambos eligieron ${humanSelection}.`);
 	} else if (
 		(humanSelection === 'piedra' && computerSelection === 'tijera') ||
 		(humanSelection === 'papel' && computerSelection === 'piedra') ||
 		(humanSelection === 'tijera' && computerSelection === 'papel')
 	) {
 		humanScore++;
-		console.log(`¡Ganas esta ronda! ${humanSelection} vence a ${computerSelection}.`);
+		alert(`¡Ganas esta ronda! ${humanSelection} vence a ${computerSelection}.`);
 	} else {
 		computerScore++;
-		console.log(`¡Pierdes esta ronda! ${computerSelection} vence a ${humanSelection}.`);
+		alert(`¡Pierdes esta ronda! ${computerSelection} vence a ${humanSelection}.`);
 	}
 }
 
 function playGame() {
 	while (true) {
 		playRound(getHumanChoice, getComputerChoice);
-		console.log(`Puntuación - Humano: ${humanScore}, Computadora: ${computerScore}`);
+		alert(`Puntuación - Humano: ${humanScore}, Computadora: ${computerScore}`);
 
 		if (humanScore === 3) {
-			console.log('¡Felicidades! Has ganado el juego.');
+			alert('¡Felicidades! Has ganado el juego.');
 			break;
 		} else if (computerScore === 3) {
-			console.log('La computadora ha ganado el juego.');
+			alert('La computadora ha ganado el juego.');
 			break;
 		}
 	}
